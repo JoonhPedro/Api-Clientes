@@ -1,33 +1,32 @@
-import prismaClient from "../prisma";
+import prismaClient from '../prisma'
 
-interface DeleteCustomerServiceProps{
+interface DeleteCustomerServiceProps {
   id: string
 }
 
 class DeleteCustomerService {
-  async execute({ id }: DeleteCustomerServiceProps){
-    if(!id){
+  async execute({ id }: DeleteCustomerServiceProps) {
+    if (!id) {
       throw new Error('Solicitação Invalida')
     }
 
-  const findCustomer = await prismaClient.customer.findFirst({
-    where:{
-      id: id
+    const findCustomer = await prismaClient.customer.findFirst({
+      where: {
+        id,
+      },
+    })
+
+    if (!findCustomer) {
+      throw new Error('Cliente não existe')
     }
-  })
 
-  if(!findCustomer){
-    throw new Error('Cliente não existe')
-  }
+    await prismaClient.customer.delete({
+      where: {
+        id: findCustomer.id,
+      },
+    })
 
-  await prismaClient.customer.delete({
-    where:{
-      id: findCustomer.id
-    }
-  })
-
-  return {message: 'Deletado com sucesso'}
-
+    return { message: 'Deletado com sucesso' }
   }
 }
 
