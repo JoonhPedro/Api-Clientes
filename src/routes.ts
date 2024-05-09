@@ -3,7 +3,12 @@ import { CreateCustomerController } from './controllers/CreateCustomerController
 import { ListCustomersController } from './controllers/ListCustomersControllers'
 import { DeleteCustomerController } from './controllers/DeleteCustomerController'
 
+const message = 'Service Rodando'
+
 export async function routes(fastify: FastifyInstance) {
+  fastify.get('/', async () => {
+    return message
+  })
   fastify.post(
     '/customer',
     async (request: FastifyRequest, reply: FastifyReply) => {
