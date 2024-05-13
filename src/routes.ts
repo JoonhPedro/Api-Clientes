@@ -1,7 +1,8 @@
-import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify'
+import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
 import { CreateCustomerController } from './controllers/CreateCustomerControllers'
-import { ListCustomersController } from './controllers/ListCustomersControllers'
 import { DeleteCustomerController } from './controllers/DeleteCustomerController'
+import { ListCustomersController } from './controllers/ListCustomersControllers'
+import { UpdateCustomerController } from './controllers/UpdateCustomerServicer'
 
 const message = 'Service Rodando'
 
@@ -27,6 +28,13 @@ export async function routes(fastify: FastifyInstance) {
     '/customer',
     async (request: FastifyRequest, reply: FastifyReply) => {
       return new DeleteCustomerController().handle(request, reply)
+    },
+  )
+  fastify.put(
+    '/customer/:id',
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const { id } = request.params as { id: string }
+      return new UpdateCustomerController().handle(request, reply)
     },
   )
 }
