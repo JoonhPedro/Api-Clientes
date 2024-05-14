@@ -1,0 +1,15 @@
+{
+  "vension": 2,
+  "builds": [
+    {
+      "src": "src/server.ts",
+      "use": "@vencel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "*(.*)",
+      "dest": "src/server.ts"
+    }
+  ] 
+}
