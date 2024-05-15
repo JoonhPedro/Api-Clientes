@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "tsx watch src/server.ts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "lint:dev": "npm run lint --fix"
+    "lint:dev": "npm run lint --fix",
+    "vencel-build": "npx prisma generete"
   },
   "keywords": [],
   "author": "",
