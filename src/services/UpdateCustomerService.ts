@@ -16,21 +16,25 @@ class UpdateCustomerService {
     phone,
     document,
   }: UpdateCustomerServiceProps) {
-    if (!id || !name || !email || !phone || !document) {
-      throw new Error('Preencha todos os campos')
+    try {
+      if (!id || !name || !email || !phone || !document) {
+        throw new Error('Preencha todos os campos')
+      }
+
+      const updatedCustomer = await prismaClient.customer.update({
+        where: { id },
+        data: {
+          name,
+          email,
+          phone,
+          document,
+        },
+      })
+
+      return updatedCustomer
+    } catch (err) {
+      return err
     }
-
-    const updatedCustomer = await prismaClient.customer.update({
-      where: { id },
-      data: {
-        name,
-        email,
-        phone,
-        document,
-      },
-    })
-
-    return updatedCustomer
   }
 }
 

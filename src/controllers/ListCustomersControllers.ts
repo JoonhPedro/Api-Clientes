@@ -3,11 +3,13 @@ import { ListCustomersService } from '../services/ListCustomersService'
 
 class ListCustomersController {
   async handle(request: FastifyRequest, reply: FastifyReply) {
-    const listCustomersService = new ListCustomersService()
-
-    const customers = await listCustomersService.execute()
-
-    reply.send(customers)
+    try {
+      const listCustomersService = new ListCustomersService()
+      const customers = await listCustomersService.execute()
+      reply.send(customers)
+    } catch (err) {
+      return err
+    }
   }
 }
 
