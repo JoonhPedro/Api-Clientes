@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines":{
+    "node": "18"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "tsx watch src/server.ts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:dev": "npm run lint --fix",
-    "vencel-build": "npx prisma generete"
+    "build": "tsup src",
+    "start": "node dist/server.ts"
   },
   "keywords": [],
   "author": "",
