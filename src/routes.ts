@@ -2,7 +2,7 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
 import { CreateCustomerController } from './controllers/CreateCustomerControllers'
 import { DeleteCustomerController } from './controllers/DeleteCustomerController'
 import { ListCustomersController } from './controllers/ListCustomersControllers'
-import { UpdateCustomerController } from './controllers/UpdateCustomerControllers'
+import { UpdateCustomerController } from './controllers/UpdateCustomerServicer'
 
 const message = 'Service Rodando'
 

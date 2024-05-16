@@ -12,7 +12,7 @@ class UpdateCustomerController {
         document: string
         status: boolean
       }
-      if (!name || !email || !phone || !document) {
+      if (!id || !name || !email || !phone || !document) {
         throw new Error('Todos os campos devem ser preenchidos')
       }
       const updateCustomerService = new UpdateCustomerService()

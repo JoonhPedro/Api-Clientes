@@ -20,7 +20,7 @@ class UpdateCustomerService {
   }: UpdateCustomerServiceProps) {
     try {
       if (!id || !name || !email || !phone || !document) {
-        throw new Error('Todos os campos devem ser preenchidos')
+        throw new Error('Preencha todos os campos')
       }
 
       const updatedCustomer = await prismaClient.customer.update({
