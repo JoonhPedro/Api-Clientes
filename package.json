@@ -19,16 +19,17 @@
   "license": "ISC",
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.2.2",
+    "@swc/core": "^1.2.190",
     "@types/node": "^20.12.11",
     "eslint": "^8.57.0",
     "prisma": "^5.13.0",
-    "typescript": "^5.4.5",
     "tsup": "^7.2.0",
-    "@swc/core": "^1.2.190"
+    "typescript": "^5.4.5"
   },
   "dependencies": {
     "@fastify/cors": "^9.0.1",
     "@prisma/client": "^5.13.0",
+    "dotenv": "^16.4.5",
     "fastify": "^4.27.0",
     "tsx": "^4.9.3"
   }
