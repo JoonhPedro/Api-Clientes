@@ -6,6 +6,7 @@ interface UpdateCustomerServiceProps {
   email: string
   phone: string
   document: string
+  status: boolean
 }
 
 class UpdateCustomerService {
@@ -15,6 +16,7 @@ class UpdateCustomerService {
     email,
     phone,
     document,
+    status,
   }: UpdateCustomerServiceProps) {
     try {
       if (!id || !name || !email || !phone || !document) {
@@ -28,6 +30,7 @@ class UpdateCustomerService {
           email,
           phone,
           document,
+          status,
         },
       })
 

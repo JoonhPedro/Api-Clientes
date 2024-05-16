@@ -5,11 +5,12 @@ class UpdateCustomerController {
   async handle(request: FastifyRequest, reply: FastifyReply) {
     try {
       const id = request.params.id
-      const { name, email, phone, document } = request.body as {
+      const { name, email, phone, document, status } = request.body as {
         name: string
         email: string
         phone: string
         document: string
+        status: boolean
       }
       if (!id || !name || !email || !phone || !document) {
         throw new Error('Todos os campos devem ser preenchidos')
@@ -21,6 +22,7 @@ class UpdateCustomerController {
         email,
         phone,
         document,
+        status,
       })
 
       reply.send(updatedCustomer)
