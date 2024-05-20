@@ -33,7 +33,6 @@ export async function routes(fastify: FastifyInstance) {
   fastify.put(
     '/customer/:id',
     async (request: FastifyRequest, reply: FastifyReply) => {
-      const { id } = request.params as { id: string }
       return new UpdateCustomerController().handle(request, reply)
     },
   )

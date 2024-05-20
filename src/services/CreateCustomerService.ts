@@ -9,13 +9,7 @@ interface CreateCustomerServiceProps {
 }
 
 class CreateCustomerService {
-  async execute({
-    name,
-    email,
-    phone,
-    document,
-    status,
-  }: CreateCustomerServiceProps) {
+  async execute({ name, email, phone, document }: CreateCustomerServiceProps) {
     try {
       if (!name || !email || !phone || !document) {
         throw new Error('Preencha todos os campos')
@@ -27,7 +21,7 @@ class CreateCustomerService {
           email,
           phone,
           document,
-          status,
+          status: true,
         },
       })
 

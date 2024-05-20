@@ -12,7 +12,7 @@ class CreateCustomerController {
         status: boolean
       }
       if (!name || !email || !phone || !document) {
-        throw new Error('falta preencher o nome ou email')
+        throw new Error('falta preencher os dados')
       }
       const customerService = new CreateCustomerService()
       const customer = await customerService.execute({
@@ -22,7 +22,6 @@ class CreateCustomerController {
         document,
         status,
       })
-
       reply.send(customer)
     } catch (err) {
       return err

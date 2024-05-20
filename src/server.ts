@@ -5,8 +5,6 @@ import { routes } from './routes'
 
 dotenv.config()
 
-console.log('DATABASE_URL:', process.env.DATABASE_URL)
-
 const app = Fastify({ logger: true })
 
 app.setErrorHandler((error, request, reply) => {
